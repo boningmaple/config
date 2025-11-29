@@ -21,14 +21,12 @@ setopt no_case_glob no_case_match
 setopt interactive_comments
 
 # Alias
-# Make the default `ls` output colorful
-alias ls='ls --color'
-# Same as `ls`, but with file type indicators
-alias l='ls -CF --color'
+# Make the default `ls` output with file type indicators and colorful
+alias ls='ls -CFG'
 # List all files
-alias la='ls -A --color'
+alias la='ls -AFG'
 # List all files with details
-alias ll='ls -alF --color'
+alias l='ls -AFGl'
 
 # Activate Zsh plugins
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
