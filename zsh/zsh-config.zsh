@@ -20,13 +20,14 @@ setopt hist_find_no_dups
 setopt no_case_glob no_case_match
 setopt interactive_comments
 
-# Alias
+# Aliases
 # Make the default `ls` output with file type indicators and colorful
 alias ls='ls -CFG'
 # List all files
 alias la='ls -AFG'
 # List all files with details
 alias l='ls -AFGl'
+alias v='vim'
 
 # Activate Zsh plugins
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
