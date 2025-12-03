@@ -16,21 +16,24 @@ fi
 # shellcheck source=../lib.sh
 source "$LIB_PATH"
 
-# Array of Zsh packages to install/check
-PACKAGES=("zsh-autosuggestions" "zsh-syntax-highlighting" "fzf" "zoxide" "starship")
+# Array of some formulae packages to install/check, including:
+# - Zsh plugins: zsh-autosuggestions, zsh-syntax-highlighting, zoxide, starship
+# - CLI: fzf
+# - Rust: rustup
+PACKAGES=("zsh-autosuggestions" "zsh-syntax-highlighting" "zoxide" "starship" "fzf" "rustup")
 
 main() {
-    echo "🔍 Starting Zsh configuration..."
-    install-zsh-plugins
+    echo "🚀 Starting Zsh configuration..."
+    install-packages
     configure-zsh
     echo "🎉 Completed."
 }
 
-install-zsh-plugins() {
-    echo "🔍 Installing Zsh plugins..."
+install-packages() {
+    echo "🚀 Installing Zsh plugins..."
     case $OSTYPE in
     darwin*)
-        mac-install-zsh-plugins
+        mac-install-packages
         ;;
     # linux*)
     #     linux-install-zsh-plugins
@@ -42,7 +45,7 @@ install-zsh-plugins() {
     esac
 }
 
-mac-install-zsh-plugins() {
+mac-install-packages() {
     # The script will stop here if Homebrew is not installed.
     require-command "brew"
 
@@ -65,11 +68,20 @@ mac-install-zsh-plugins() {
                 # Don't exit the script, just move to the next package.
             fi
         fi
+
+        if [ "$package" = "rustup" ]; then
+            echo "    🚀 Initializing rustup with default stable toolchain..."
+            if "$package" default stable &>/dev/null; then
+                echo "    ✅ rustup initialized successfully."
+            else
+                echo "    ⚠️ rustup initialization failed."
+            fi
+        fi
     done
 }
 
 configure-zsh() {
-    echo "🔍 Configuring Zsh..."
+    echo "🚀 Configuring Zsh..."
 
     # 1. Define paths
     local source_file="$SCRIPT_DIR/zsh-config.zsh"
