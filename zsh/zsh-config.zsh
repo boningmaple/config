@@ -26,7 +26,7 @@ alias la='ls -AFG'
 # List all files with details
 alias l='ls -AFGlh'
 alias vim='/usr/local/bin/vim'
-alias v = 'vim'
+alias v='vim'
 
 # Activate Zsh plugins
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
