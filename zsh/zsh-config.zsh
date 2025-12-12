@@ -21,13 +21,11 @@ setopt no_case_glob no_case_match
 setopt interactive_comments
 
 # Aliases
-# Make the default `ls` output with file type indicators and colorful
-alias ls='ls -CFG'
 # List all files
 alias la='ls -AFG'
 # List all files with details
-alias l='ls -AFGl'
-alias v='vim'
+alias l='ls -AFGlh'
+alias vim='/usr/local/bin/vim'
 
 # Activate Zsh plugins
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -44,3 +42,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 # Rust
 export PATH="$(brew --prefix rustup)/bin:$PATH"
+
+# fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
