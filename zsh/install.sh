@@ -17,10 +17,12 @@ fi
 source "$LIB_PATH"
 
 # Array of some formulae packages to install/check, including:
+# - Vim, Neovim
 # - Zsh plugins: zsh-autosuggestions, zsh-syntax-highlighting, zoxide, starship
-# - CLI: fzf
+# - CLI: fzf, tree, tokei, fastfetch
 # - Rust: rustup
-PACKAGES=("zsh-autosuggestions" "zsh-syntax-highlighting" "zoxide" "starship" "fzf" "rustup")
+# - JavaScript: fnm
+PACKAGES=("vim" "neovim" "zsh-autosuggestions" "zsh-syntax-highlighting" "zoxide" "starship" "rustup" "fnm" "fzf" "tree" "tokei" "fastfetch")
 
 main() {
     echo "🚀 Starting Zsh configuration..."
@@ -30,7 +32,7 @@ main() {
 }
 
 install-packages() {
-    echo "🚀 Installing Zsh plugins..."
+    echo "🚀 Installing packages..."
     case $OSTYPE in
     darwin*)
         mac-install-packages
